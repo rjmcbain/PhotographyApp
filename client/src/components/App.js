@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 import Header from './Header';
 const Dashboard = () => <h2>Dashboard</h2> 
 const PhotoNew = () => <h2>PhotoNew</h2> 
 const Landing = () => <h2>Landing</h2> 
 
-const App = () => {
+class App extends Component {
+    componentDidMount() {
+        this.props.fetchUser();
+    }
+
+    render() {
     return (
-        <div>
+        <div className="container">
             <BrowserRouter>
                 <div>
                     <Header />
@@ -18,7 +25,8 @@ const App = () => {
                 </div>
             </BrowserRouter>
         </div>
-    );
+      );
+   }
 };
 
-export default App;
+export default connect(null, actions) (App);
