@@ -1,0 +1,19 @@
+#logo {
+    position: absolute; 
+    left: 60px;
+    color: white;
+}
+
+.log {
+    position: absolute;
+    right: 60px;
+}
+
+#nav {
+    background-color: aqua;
+    opacity: 0.9;
+}
+
+#bg {
+    background-color: grey;
+}

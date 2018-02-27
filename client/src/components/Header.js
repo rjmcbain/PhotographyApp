@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import './Header.css';
 
 class Header extends Component {
     renderContent() {
@@ -9,10 +10,10 @@ class Header extends Component {
                 return;
             case false:
                 return (
-                    <li><a href="/auth/google">Login With Google</a></li>
+                    <li class="log"><a href="/auth/google">Login With Google</a></li>
                 );
             default:
-                return <li><a href="/api/logout">Logout</a></li>;
+                return <li class="log"><a href="/api/logout">Logout</a></li>;
         }
     }
 
@@ -20,9 +21,9 @@ class Header extends Component {
         // console.log(this.props);
         return (
             <nav>
-                <div className="nav-wrapper black lighten-2">
-                <Link to={this.props.auth ? '/photo' : '/'}
-                className="brand-logo">RJ McBain</Link>
+                <div id="nav" className="nav-wrapper green">
+                <Link id="logo" to={this.props.auth ? '/photo' : '/'}
+                className="left brand-logo" >RJ McBain</Link>
                 <ul className="right">
                     {this.renderContent()}
                     {/* <li><a href="badges.html">Components</a></li>
