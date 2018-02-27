@@ -5,7 +5,8 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
-const Dashboard = () => <h2>Dashboard</h2> 
+import Photo from './Photo';
+// const Dashboard = () => <h2>Dashboard</h2> 
 const PhotoNew = () => <h2>PhotoNew</h2> 
 
 
@@ -21,7 +22,7 @@ class App extends Component {
                 <div>
                     <Header />
                     <Route exact path="/" component={Landing}/>
-                    <Route exact path="/photo" component={Dashboard}/>
+                    <Route exact path="/photo" component={Photo}/>
                     <Route path="/photo/new" component={PhotoNew}/>
                 </div>
             </BrowserRouter>
