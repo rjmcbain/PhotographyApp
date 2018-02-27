@@ -30,6 +30,26 @@ class Photo extends Component {
       });
   }
 
+  // fileGetHandler = () => {
+  //   var docRef = db.collection("photo_upload");
+
+  //   docRef.get().then(function(doc) {
+  //       if (doc.exists) {
+  //           console.log("Document data:", doc.data());
+  //       } else {
+  //           // doc.data() will be undefined in this case
+  //           console.log("No such document!");
+  //       }
+  //   }).catch(function(error) {
+  //       console.log("Error getting document:", error);
+  //   });
+ 
+  // }
+
+  // componentDidMount = () => {
+  //   this.fileGetHandler ();
+  // }
+
   render() {
     return (
     <div id="bg">  

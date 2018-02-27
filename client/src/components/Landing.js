@@ -4,9 +4,8 @@ const Landing = () => {
     return (
         <div style={{ textAlign: 'center' }}>
             <h1>
-                Landing Page!!
+                Welcome to my photo uploader
             </h1>
-        Collect feedback
         </div>
     );
 };
