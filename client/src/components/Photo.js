@@ -39,16 +39,29 @@ class Photo extends Component {
   }
 
   fileUploadHandler = () => {
-    const fd = new FormData();
-    fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
-    axios.post('https://us-central1-photo-upload-79725.cloudfunctions.net/uploadFile', fd, {
-      onUploadProgress: progressEvent => {
-        console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
-      }
+    console.log(Fire.storage());
+    var fireStorage = Fire.storage();
+    var fireReference = fireStorage.ref();
+    
+    var pictureReference = fireReference.child('photo');
+    console.log(this.state.selectedFile);
+    pictureReference.put(this.state.selectedFile).then(res => {
+      console.log(res.downloadURL);
+      let current = this.state.url
+      current.push(res.downloadURL);
+      this.setState({ url: current })
+      
     })
-      .then(res => {
-        console.log(res);
-      });
+    // const fd = new FormData();
+    // fd.append('image', this.state.selectedFile, this.state.selectedFile.name);
+    // axios.post('https://us-central1-photo-upload-79725.cloudfunctions.net/uploadFile', fd, {
+    //   onUploadProgress: progressEvent => {
+    //     console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
+    //   }
+    // })
+    //   .then(res => {
+    //     console.log(res);
+    //   });
   }
 
   // fileGetHandler = () => {
